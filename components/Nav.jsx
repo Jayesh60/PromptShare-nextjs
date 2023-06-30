@@ -28,32 +28,34 @@ const Nav = () => {
           alt="Logo"
           className="rounded-full object-contain"
         />
-        <h1 className="text-xl md:text-2xl font-extrabold bg-gradient-to-r from-yellow-300 to-orange-400 text-transparent bg-clip-text sm:text-black">
+        <h1 className="text-xl md:text-3xl font-extrabold bg-gradient-to-r from-yellow-300 to-orange-400 text-transparent bg-clip-text sm:text-black">
           PromptShare
         </h1>
       </Link>
       <h1 className="text-center sm:flex hidden text-xl md:text-3xl font-extrabold  bg-gradient-to-r from-yellow-300 to-orange-400 text-transparent leading-none bg-clip-text ">
         Discover and Share AI Prompt's
       </h1>
+
+      {/* desktop */}
       <div className="sm:flex  hidden">
         {session?.user ? (
           <div className="flex justify-center items-center gap-3">
             <Link
               href="/create-prompt"
-              className="font-bold text-center text-lg"
+              className="font-bold border p-2 text-center text-lg hover:bg-[orange] border-[orange] rounded"
             >
               Create Post
             </Link>
             <button
               type="button"
               onClick={() => signOut()}
-              className="font-bold text-lg"
+              className="font-bold border border-[orange] rounded p-2 text-lg hover:bg-[orange]"
             >
               Sign Out
             </button>
             <Link href="/profile">
               <Image
-                src="/assets/images/logo.png"
+                src={session?.user.image}
                 height={40}
                 width={40}
                 alt="profile"
@@ -69,6 +71,7 @@ const Nav = () => {
                   type="button"
                   key={provider.name}
                   onClick={() => signIn(provider.id)}
+                  className="font-bold border p-2 text-center text-lg hover:bg-[orange] border-[orange] rounded"
                 >
                   Sign In
                 </button>
@@ -82,7 +85,7 @@ const Nav = () => {
         {session?.user ? (
           <div className="flex relative justify-center items-center gap-5 md:gap-8">
             <Image
-              src="/assets/images/logo.png"
+              src={session?.user.image}
               height={40}
               width={40}
               alt="profile"
@@ -90,7 +93,7 @@ const Nav = () => {
               onClick={() => setToggle((prev) => !prev)}
             />
             {toggle && (
-              <div className="absolute right-0 top-full mt-3 w-full p-5 rounded-sm bg-gradient-to-r from-yellow-200 to-orange-100 min-w-[140px] flex flex-col gap-2 justify-end items-end">
+              <div className="absolute right-0 top-full mt-3 w-full p-3 rounded-sm bg-gradient-to-r from-yellow-200 to-orange-100 min-w-[140px] flex flex-col gap-2 justify-end items-end">
                 <Link
                   href="/profile"
                   className="text-sm font-inter text-gray-700 hover:text-gray-500 font-medium "
@@ -111,7 +114,7 @@ const Nav = () => {
                     setToggle(false);
                     signOut();
                   }}
-                  className="text-sm font-inter text-gray-700 hover:text-gray-500 font-medium "
+                  className=" font-inter  font-medium rounded-full border border-black bg-black py-1 px-5 text-white transition-all hover:bg-white hover:text-black text-center text-sm font-inter flex items-center justify-center "
                 >
                   Sign Out
                 </button>
@@ -126,6 +129,7 @@ const Nav = () => {
                   type="button"
                   key={provider.name}
                   onClick={() => signIn(provider.id)}
+                  className="font-bold border p-1 sm:p-2 text-center text-lg hover:bg-[orange] border-[orange] rounded"
                 >
                   Sign In
                 </button>
