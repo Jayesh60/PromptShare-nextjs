@@ -34,13 +34,14 @@ const Home = () => {
     <section className="w-full flex-col flex">
       <div className="relative text-center justify-center flex">
         
-        <Image
+        {/* <Image
           src={bannerImage}
           width={100000000}
           height={100000000}
           className="w-full h-[80vh] object-cover text-center"
           alt="Home page banner"
-        />
+        /> */}
+        
       </div>
         
 

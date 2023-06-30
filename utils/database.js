@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const isConnected = false;
+let isConnected = false;
 
 export const connectToDb = async () =>{
     if (isConnected){
@@ -17,7 +17,7 @@ export const connectToDb = async () =>{
                 useUnifiedTopology: true
             }
         )
-        // isConnected = true;
+        isConnected = true;
         console.log("database connected")
     } catch (error) {
         console.log(error)
