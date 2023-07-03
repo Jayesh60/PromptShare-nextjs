@@ -65,7 +65,8 @@ const Nav = () => {
           </div>
         ) : (
           <>
-            {providers &&
+            {
+            providers &&
               Object.values(providers).map((provider) => (
                 <button
                   type="button"
@@ -128,7 +129,7 @@ const Nav = () => {
                 <button
                   type="button"
                   key={provider.name}
-                  onClick={() => signIn(provider.id)}
+                  onClick={() => signIn(provider.id, { callbackUrl: "/" })}
                   className="font-bold border p-1 sm:p-2 text-center text-lg hover:bg-[orange] border-[orange] rounded"
                 >
                   Sign In

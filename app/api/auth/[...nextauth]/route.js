@@ -1,4 +1,4 @@
-import NextAuth from "next-auth/next";
+import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google"
 import {
     connectToDb
@@ -10,18 +10,24 @@ const handler = NextAuth({
         GoogleProvider({
             clientId: process.env.GOOGLE_ID,
             clientSecret: process.env.GOOGLE_SECRET,
-            checks:['none']
+
+            authorizationUrl: 'https://accounts.google.com/o/oauth2/v2'
+
         })
     ],
-    callbacks:{
-        async session({ session }) {
-            const sessionUser = User.findOne({
+    callbacks: {
+        async session({
+            session
+        }) {
+            const sessionUser = await User.findOne({
                 email: session.user.email
             })
             session.user.id = sessionUser._id.toString()
             return session;
         },
-        async signIn({ profile }) {
+        async signIn({
+            profile
+        }) {
             try {
                 await connectToDb();
                 const userExists = await User.findOne({
@@ -34,16 +40,16 @@ const handler = NextAuth({
                         image: profile.picture
                     })
                 }
-                
-    
+                return true;
             } catch (error) {
                 console.log(error)
+                return false;
             }
-    
+
         },
 
     }
-    
+
 })
 
 export {
