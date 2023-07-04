@@ -45,7 +45,7 @@ const Feed = () => {
       <form className="relative w-full flex justify-center">
         <input
          type="text" 
-         placeholder="Search for a tag or username"
+         placeholder="coming soon..."
          className="bg-[whitesmoke] w-full max-w-[44rem] h-11 md:h-16  border-[orange] outline-none border text-lg p-2 rounded"
          value={searchText}
          onChange={handleSearchChange}
