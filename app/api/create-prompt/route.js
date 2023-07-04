@@ -9,7 +9,7 @@ export const GET = async (request) =>{
         return new Response(JSON.stringify(prompts),{status:200});
          
     } catch (error) {
-        console.log(error + "prompts failed to load searchbar")
-        
+        console.log(error + "prompts failed to load feed")
+        return new Response(JSON.stringify("failed"),{status:500});
     }
 }

@@ -3,7 +3,7 @@ import { Schema, model, models } from "mongoose";
 const UserPrompt = new Schema({
     creator:{
         type: Schema.Types.ObjectId,
-        ref:"User"
+        ref:"UserSchema"
     },
     prompt:{
         type:String,
