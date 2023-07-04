@@ -14,8 +14,8 @@ const Layout = ({ children }) => {
           <div>
             <div></div>
           </div>
-          <main className="flex flex-col justify-center items-center">
             <Nav />
+          <main className="flex flex-col relative justify-center items-center">
             {children}
           </main>
         </body>

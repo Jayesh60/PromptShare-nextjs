@@ -19,7 +19,7 @@ const Nav = () => {
   }, []);
 
   return (
-    <nav className="flex sm:p-10 p-4  w-full gap-1 justify-between items-center">
+    <nav className="flex sm:p-8 p-4 z-50 top-0 sticky bg-white  w-full gap-1 justify-between items-center">
       <Link href={"/"} className="flex justify-center items-center">
         <Image
           src="/assets/images/logo.png"
@@ -28,7 +28,7 @@ const Nav = () => {
           alt="Logo"
           className="rounded-full object-contain"
         />
-        <h1 className="text-xl md:text-3xl font-extrabold bg-gradient-to-r from-yellow-300 to-orange-400 text-transparent bg-clip-text sm:text-black">
+        <h1 className="text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-yellow-300 to-orange-400 text-transparent bg-clip-text sm:text-black">
           PromptShare
         </h1>
       </Link>
@@ -42,14 +42,14 @@ const Nav = () => {
           <div className="flex justify-center items-center gap-3">
             <Link
               href="/create-prompt"
-              className="font-bold border p-2 text-center text-lg hover:bg-[orange] border-[orange] rounded"
+              className="font-bold border p-2 text-center text-lg hover:bg-[#fdb52f] border-[orange] rounded"
             >
               Create Post
             </Link>
             <button
               type="button"
               onClick={() => signOut()}
-              className="font-bold border border-[orange] rounded p-2 text-lg hover:bg-[orange]"
+              className="font-bold border border-[orange] rounded p-2 text-lg hover:bg-[#fdb52f]"
             >
               Sign Out
             </button>
@@ -94,17 +94,17 @@ const Nav = () => {
               onClick={() => setToggle((prev) => !prev)}
             />
             {toggle && (
-              <div className="absolute right-0 top-full mt-3 w-full p-3 rounded-sm bg-gradient-to-r from-yellow-200 to-orange-100 min-w-[140px] flex flex-col gap-2 justify-end items-end">
+              <div className="absolute h-[20vh] right-0 top-full mt-3 w-full p-3 rounded-md bg-gradient-to-r from-yellow-200 to-orange-200 min-w-[140px] flex flex-col gap-2 justify-end items-end ">
                 <Link
                   href="/profile"
-                  className="text-sm font-inter text-gray-700 hover:text-gray-500 font-medium "
+                  className="text-sm font-inter text-gray-900 hover:text-gray-500 font-medium "
                   onClick={()=>setToggle(false)}
                 >
                   Profile
                 </Link>
                 <Link
                   href="/create-prompt"
-                  className="text-sm font-inter text-gray-700 hover:text-gray-500 font-medium "
+                  className="text-sm font-inter text-gray-900 hover:text-gray-500 font-medium "
                   onClick={()=>setToggle(false)}
                 >
                   Create Post

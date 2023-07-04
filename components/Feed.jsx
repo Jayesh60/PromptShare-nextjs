@@ -1,8 +1,10 @@
-import React from 'react'
+"use client"
 
 const Feed = () => {
   return (
-    <div>Feed</div>
+    <section>
+      feed
+    </section>
   )
 }
 
