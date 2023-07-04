@@ -4,7 +4,6 @@ const UserPrompt = new Schema({
     creator:{
         type: Schema.Types.ObjectId,
         ref:"User"
-
     },
     prompt:{
         type:String,

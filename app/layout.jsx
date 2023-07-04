@@ -11,11 +11,8 @@ const Layout = ({ children }) => {
     <html lang="en">
       <Provider>
         <body>
-          <div>
-            <div></div>
-          </div>
-            <Nav />
-          <main className="flex flex-col relative justify-center items-center">
+          <Nav />
+          <main className="flex flex-col justify-center items-center">
             {children}
           </main>
         </body>

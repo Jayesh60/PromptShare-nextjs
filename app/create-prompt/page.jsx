@@ -11,7 +11,7 @@ const page = () => {
     const [post, setPost] = useState({
         prompt:"",
         tag:" "
-    })
+      })
     const createPrompt = async (e) =>{
       e.preventDefault();
       setSubmitting(true);
@@ -21,9 +21,10 @@ const page = () => {
           body: JSON.stringify({
             prompt:post.prompt,
             tag:post.tag,
-            user : session?.user.id
+            userId : session?.user.id,
           }),
-        })
+        }
+        )
         if(response.ok){
           router.push('/')
         }
@@ -33,6 +34,8 @@ const page = () => {
         setSubmitting(false)
       }
     }
+    console.log( "session id is " + session?.user.email) 
+
 
   return (
     <Form
