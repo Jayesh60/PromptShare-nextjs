@@ -20,14 +20,11 @@ const PromptCardList = ({ data, handleTagClick}) =>{
 }
 
 
-
-
 const Feed = () => {
   const [searchText, setSearchText] = useState('');
   const handleSearchChange= (e)=>{
     e.preventDefault();
   }
-  
   
   const [posts, setPosts] = useState([]);
   useEffect(() =>{
