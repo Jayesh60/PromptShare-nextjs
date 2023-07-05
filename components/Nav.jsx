@@ -23,12 +23,12 @@ const Nav = () => {
       <Link href={"/"} className="flex justify-center items-center">
         <Image
           src="/assets/images/logo.png"
-          height={55}
-          width={55}
+          height={50}
+          width={50}
           alt="Logo"
           className="rounded-full object-contain"
         />
-        <h1 className="text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-yellow-300 to-orange-400 text-transparent bg-clip-text sm:text-black">
+        <h1 className="text-xl md:text-3xl font-extrabold bg-gradient-to-r from-yellow-300 to-orange-400 text-transparent bg-clip-text sm:text-black">
           PromptShare
         </h1>
       </Link>
@@ -42,14 +42,14 @@ const Nav = () => {
           <div className="flex justify-center items-center gap-3">
             <Link
               href="/create-prompt"
-              className="font-bold border p-2 text-center text-lg hover:bg-[#fdb52f] border-[orange] rounded"
+              className="font-bold border py-1 px-3 text-center text-lg hover:bg-[#fdb52f] border-[orange] rounded"
             >
               Create Post
             </Link>
             <button
               type="button"
               onClick={() => signOut()}
-              className="font-bold border border-[orange] rounded p-2 text-lg hover:bg-[#fdb52f]"
+              className="font-bold border border-[orange] rounded py-1 px-3 text-lg hover:bg-[#fdb52f]"
             >
               Sign Out
             </button>
@@ -72,7 +72,7 @@ const Nav = () => {
                   type="button"
                   key={provider.name}
                   onClick={() => signIn(provider.id)}
-                  className="font-bold border p-2 text-center text-lg hover:bg-[orange] border-[orange] rounded"
+                  className="font-bold border py-1 px-3 text-center text-lg hover:bg-[orange] border-[orange] rounded"
                 >
                   Sign In
                 </button>
@@ -130,7 +130,7 @@ const Nav = () => {
                   type="button"
                   key={provider.name}
                   onClick={() => signIn(provider.id, { callbackUrl: "/" })}
-                  className="font-bold border p-1 sm:p-2 text-center text-lg hover:bg-[orange] border-[orange] rounded"
+                  className="font-semibold border p-1 sm:p-2 text-center text-sm hover:bg-[orange] border-[orange] rounded"
                 >
                   Sign In
                 </button>

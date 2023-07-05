@@ -7,7 +7,7 @@ import PromptCard from "./PromptCard"
 
 const PromptCardList = ({ data, handleTagClick}) =>{
   return(
-    <div>
+    <div className= "px-0 bg-gray-200  grid md:grid-cols-3 ">
       {data.map((post)=>(
         <PromptCard
           key={post._id}
@@ -38,12 +38,12 @@ const Feed = () => {
   ,[])
 
   return (
-    <section className="p-3">
+    <section className="px-4 md:px-10 py-5 bg-gray-200 w-full">
       <form className="relative w-full flex justify-center">
         <input
          type="text" 
-         placeholder="coming soon..."
-         className="bg-[whitesmoke] w-full max-w-[44rem] h-11 md:h-16  border-[orange] outline-none border text-lg p-2 rounded"
+         placeholder="Coming soon..."
+         className="bg-white placeholder:text-gray-900 w-full max-w-[44rem] h-14 md:h-16 outline-none border border-[orange] text-lg p-2 rounded mb-10"
          value={searchText}
          onChange={handleSearchChange}
         />
@@ -52,7 +52,6 @@ const Feed = () => {
       <PromptCardList
         data={posts}
         handleTagclick={()=>{}}
-
       />
       
     </section>

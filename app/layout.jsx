@@ -10,7 +10,7 @@ const Layout = ({ children }) => {
   return (
     <html lang="en">
       <Provider>
-        <body>
+        <body className="bg-gray-200">
           <Nav />
           <main className="flex flex-col justify-center items-center">
             {children}
