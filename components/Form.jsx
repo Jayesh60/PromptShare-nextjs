@@ -2,12 +2,10 @@ import Link from "next/link";
 
 const Form = ({ type, post, submitting, setPost, handleSubmit }) => {
   return (
-    <section className="w-full max-w-full px-3 flex justify-start items-center  flex-col">
-      <h1 className="text-center text-3xl font-extraboldbold">{type} Post</h1>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam aut
-        explicabo, obcaecati ex perspiciatis atque? Sint rerum beatae
-        repudiandae inventore.
+    <section className="w-full max-w-full p-3 flex justify-start items-center  flex-col">
+      <h1 className="text-center my-2 text-3xl font-bold">{type} Post</h1>
+      <p className=" flex text-justify justify-center items-center font-bold text-gray-800"> 
+        Share your prompts with the world and help them conquer their problems.
       </p>
 
       <form
@@ -22,29 +20,32 @@ const Form = ({ type, post, submitting, setPost, handleSubmit }) => {
             name="prompt"
             id="prompt"
             cols="30"
-            rows="5"
+            rows="4"
             value={post.prompt}
             onChange={(e) => {
               setPost({ ...post, prompt: e.target.value });
             }}
             required
             placeholder="Write Your AI prompt"
-            className="bg-[whitesmoke] rounded-md p-2"
+            className="bg-[whitesmoke] rounded-md p-2 resize-none placeholder:text-[orange]"
           />
         </label>
 
         <label className="flex flex-col">
           <span className="font-semibold text-base text-gray-800 p-2  ">
-            Tag
+            Tag (#chatgpt, #midjourney)
           </span>
           <input
+            type="text"
+            name="tag"
+            id="tag"
             placeholder="Tag"
-            value={post.tag}
+            // value={post.tag}
             onChange={(e) => {
               setPost({ ...post, tag: e.target.value });
             }}
-            required
-            className="bg-[whitesmoke]  rounded-md p-2"
+            required 
+            className="bg-[whitesmoke] placeholder:text-[orange] placeholder:flex rounded-md p-2"
           />
         </label>
         <div className= "flex justify-end items-center mx-3 mb-5 gap-4"> 
