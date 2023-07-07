@@ -1,6 +1,8 @@
 import "../styles/global.css";
 import Nav from "@components/Nav";
 import Provider from "@components/Provider";
+import { Suspense } from "react";
+import Loading from "./loading";
 
 export const metadata = {
   title: "PromptShare",
@@ -11,7 +13,10 @@ const Layout = ({ children }) => {
     <html lang="en">
       <Provider>
         <body className="bg-gray-200">
-          <Nav />
+          <Suspense fallback={<Loading />}>
+            <Nav />
+          </Suspense>
+
           <main className="flex flex-col justify-center items-center">
             {children}
           </main>

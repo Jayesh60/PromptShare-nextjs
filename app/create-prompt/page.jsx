@@ -38,6 +38,8 @@ const page = () => {
 
 
   return (
+    <>
+    <title>Create Post | PromptShare</title>
     <Form
         type="Create"
         post = {post}
@@ -45,6 +47,7 @@ const page = () => {
         setPost={setPost}
         handleSubmit = {createPrompt}
     />
+    </>
   )
 }
 
