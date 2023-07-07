@@ -3,8 +3,10 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { useSession, signIn, signOut, getProviders } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 const Nav = () => {
+  const router = useRouter();
   const { data: session } = useSession();
   const [toggle, setToggle] = useState(false);
   const [providers, setProviders] = useState(null);
@@ -37,6 +39,7 @@ const Nav = () => {
       </h1>
 
       {/* desktop */}
+
       <div className="sm:flex  hidden">
         {session?.user ? (
           <div className="flex justify-center items-center gap-3">
@@ -48,7 +51,7 @@ const Nav = () => {
             </Link>
             <button
               type="button"
-              onClick={() => signOut()}
+              onClick={()=>(signOut())}
               className="font-bold border border-[orange] rounded py-1 px-3 text-lg hover:bg-[#fdb52f]"
             >
               Sign Out
@@ -65,8 +68,7 @@ const Nav = () => {
           </div>
         ) : (
           <>
-            {
-            providers &&
+            {providers &&
               Object.values(providers).map((provider) => (
                 <button
                   type="button"
@@ -98,14 +100,14 @@ const Nav = () => {
                 <Link
                   href="/profile"
                   className="text-sm font-inter text-gray-900 hover:text-gray-500 font-medium "
-                  onClick={()=>setToggle(false)}
+                  onClick={() => setToggle(false)}
                 >
                   Profile
                 </Link>
                 <Link
                   href="/create-prompt"
                   className="text-sm font-inter text-gray-900 hover:text-gray-500 font-medium "
-                  onClick={()=>setToggle(false)}
+                  onClick={() => setToggle(false)}
                 >
                   Create Post
                 </Link>

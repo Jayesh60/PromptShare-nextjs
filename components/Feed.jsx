@@ -43,7 +43,7 @@ const Feed = () => {
         <input
          type="text" 
          placeholder="Coming soon..."
-         className="bg-white placeholder:text-gray-900 w-full max-w-[44rem] h-14 md:h-16 outline-none border border-[orange] text-lg p-2 rounded mb-10"
+         className="bg-gray-100 placeholder:text-gray-900 w-full max-w-[44rem] h-14 md:h-16 outline-none border border-[orange] text-lg p-2 rounded mb-10"
          value={searchText}
          onChange={handleSearchChange}
         />
