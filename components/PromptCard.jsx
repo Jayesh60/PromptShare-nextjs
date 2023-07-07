@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import Image from "next/image";
 
 const PromptCard = ({ post, handleTagClick }) => {
@@ -12,6 +12,7 @@ const PromptCard = ({ post, handleTagClick }) => {
 
   }
   return (
+    <Suspense fallback={<p>Loading...</p>}>
     <div className="p-1 md:p-3 w-full ">
       <div className="flex rounded-lg h-full bg-gray-100 md:p-5 p-4 flex-col">
         <div className="flex items-center mb-3">
@@ -48,6 +49,7 @@ const PromptCard = ({ post, handleTagClick }) => {
         </div>
       </div>
     </div>
+    </Suspense>
   );
 };
 

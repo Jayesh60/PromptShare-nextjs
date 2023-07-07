@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <section className="w-full flex-col flex">
       <title>PromptShare</title>
-      <Suspense fallback={<Loading/>}><Feed/></Suspense>
+      <Suspense fallback={<p>Loading...</p>}><Feed/></Suspense>
     </section>
   )
 }

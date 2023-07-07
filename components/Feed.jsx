@@ -1,19 +1,19 @@
 "use client"
-import { useState, useEffect } from "react"
+import { useState, useEffect, Suspense } from "react"
 import PromptCard from "./PromptCard"
-
-
 
 
 const PromptCardList = ({ data, handleTagClick}) =>{
   return(
     <div className= "px-0 bg-gray-200  grid md:grid-cols-3 ">
       {data.map((post)=>(
+        <Suspense fallback={<p>Loading...</p>}>
         <PromptCard
           key={post._id}
           post = {post}
           handleTagClick={handleTagClick}
-        />
+          />
+          </Suspense>
         ))}
     </div>
   )
@@ -48,12 +48,12 @@ const Feed = () => {
          onChange={handleSearchChange}
         />
       </form>
-
-      <PromptCardList
-        data={posts}
-        handleTagclick={()=>{}}
-      />
-      
+      <Suspense fallback={<p>Loading....</p>}>
+        <PromptCardList
+          data={posts}
+          handleTagclick={()=>{}}
+        />
+      </Suspense>
     </section>
   )
 }
