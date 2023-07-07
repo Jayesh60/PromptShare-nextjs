@@ -39,7 +39,7 @@ const page = () => {
   return (
     <>
       <title>Create Post | PromptShare</title>
-      {session.user ? (
+      {session? (
         <Form
           type="Create"
           post={post}
