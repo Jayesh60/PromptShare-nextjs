@@ -24,9 +24,9 @@ const Nav = () => {
     <nav className="flex sm:p-5 p-4 z-50 top-0 sticky bg-[#050816]  w-full gap-1 justify-between items-center">
       <Link href={"/"} className="flex justify-center items-center">
         <Image
-          src="/assets/images/logo.png"
+          src="/assets/images/main-logo-white-transparent.png"
           height={50}
-          width={50}
+          width={60}
           alt="Logo"
           className="rounded-full object-contain mr-2"
         />
