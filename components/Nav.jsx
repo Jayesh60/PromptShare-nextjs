@@ -21,16 +21,16 @@ const Nav = () => {
   }, []);
 
   return (
-    <nav className="flex sm:p-8 p-4 z-50 top-0 sticky bg-white  w-full gap-1 justify-between items-center">
+    <nav className="flex sm:p-5 p-4 z-50 top-0 sticky bg-[#050816]  w-full gap-1 justify-between items-center">
       <Link href={"/"} className="flex justify-center items-center">
         <Image
           src="/assets/images/logo.png"
           height={50}
           width={50}
           alt="Logo"
-          className="rounded-full object-contain"
+          className="rounded-full object-contain mr-2"
         />
-        <h1 className="text-xl md:text-3xl font-extrabold bg-gradient-to-r from-yellow-300 to-orange-400 text-transparent bg-clip-text sm:text-black">
+        <h1 className="text-xl md:text-3xl font-extrabold bg-gradient-to-r from-yellow-300 to-orange-400 text-transparent bg-clip-text sm:text-white">
           PromptShare
         </h1>
       </Link>
@@ -45,14 +45,14 @@ const Nav = () => {
           <div className="flex justify-center items-center gap-3">
             <Link
               href="/create-prompt"
-              className="font-bold border py-1 px-3 text-center text-lg hover:bg-[#fdb52f] border-[orange] rounded"
+              className="font-bold py-1 px-3 bg-[#28244F] text-center text-white text-lg hover:bg-[#D9E8F7] hover:text-black ease-in-out duration-500 rounded"
             >
-              Create Post
+              Add Prompt
             </Link>
             <button
               type="button"
               onClick={()=>(signOut())}
-              className="font-bold border border-[orange] rounded py-1 px-3 text-lg hover:bg-[#fdb52f]"
+              className="font-bold  bg-[#28244F]  rounded py-1 px-3 text-lg hover:text-black ease-in-out duration-500 hover:bg-[#D9E8F7] text-white"
             >
               Sign Out
             </button>
@@ -74,7 +74,7 @@ const Nav = () => {
                   type="button"
                   key={provider.name}
                   onClick={() => signIn(provider.id)}
-                  className="font-bold border py-1 px-3 text-center text-lg hover:bg-[orange] border-[orange] rounded"
+                  className="font-bold  py-1 px-3 bg-[#28244F] text-white text-center text-lg hover:bg-[#D9E8F7] ease-in-out duration-500 hover:text-black rounded"
                 >
                   Sign In
                 </button>

@@ -2,8 +2,8 @@ import Link from "next/link";
 
 const Form = ({ type, post, submitting, setPost, handleSubmit }) => {
   return (
-    <section className="w-full max-w-full p-3 flex justify-start items-center  flex-col">
-      <h1 className="text-center my-2 text-3xl font-bold">{type} Post</h1>
+    <section className="w-full bg-[#151030] h-[100vh] max-w-full p-3 flex justify-start items-center  flex-col">
+      <h1 className="text-center my-2 text-3xl text-white font-bold">{type} Post</h1>
       <p className=" flex text-justify justify-center items-center font-bold text-gray-800"> 
         Share your prompts with the world and help them conquer their problems.
       </p>
