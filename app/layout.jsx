@@ -17,7 +17,7 @@ const Layout = ({ children }) => {
             <Nav />
           </Suspense>
 
-          <main className="flex flex-col justify-center items-center">
+          <main className="flex bg-[#151030] flex-col justify-center items-center">
             {children}
           </main>
         </body>
