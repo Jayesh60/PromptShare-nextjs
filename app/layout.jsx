@@ -12,7 +12,7 @@ const Layout = ({ children }) => {
   return (
     <html lang="en">
       <Provider>
-        <body className="bg-gray-200">
+        <body className="bg-[#050816]">
           <Suspense fallback={<Loading />}>
             <Nav />
           </Suspense>
