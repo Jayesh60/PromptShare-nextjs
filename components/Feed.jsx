@@ -4,7 +4,7 @@ import PromptCard from "./PromptCard";
 
 const PromptCardList = ({ data, handleTagClick }) => {
   return (
-    <div className="px-0 w-[35vw]">
+    <div className="px-0 w-full ">
       {data.map((post) => (
         <PromptCard
           key={post._id}
@@ -35,8 +35,8 @@ const Feed = () => {
   return (
     <section className="px-4 md:px-10 py-5 bg-[#151030] w-full">
       <div className="flex flex-1">
-        <div className="flex-0.25 w-full">profile</div>
-        <div className=" w-full flex-0.5">
+        <div className="flex-0.25 w-full sm:flex hidden">profile</div>
+        <div className=" w-full  flex-0.5">
           <form className="relative w-full flex justify-center">
             <input
               type="text"
@@ -48,7 +48,7 @@ const Feed = () => {
           </form>
           <PromptCardList data={posts} handleTagclick={() => {}} />
         </div>
-        <div className="w-full flex-0.25">add prompt shortcut</div>
+        <div className="w-full flex-0.25 sm:flex hidden">add prompt shortcut</div>
       </div>
     </section>
   );
