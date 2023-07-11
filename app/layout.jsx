@@ -12,7 +12,7 @@ const Layout = ({ children }) => {
   return (
     <html lang="en">
       <Provider>
-        <body className="bg-[#050816]">
+        <body className="bg-[#050816] scroll-smooth">
           <Suspense fallback={<Loading />}>
             <Nav />
           </Suspense>
