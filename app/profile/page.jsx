@@ -16,7 +16,7 @@ const MyProfile = () => {
       if(data) setPosts(data);
 
     }
-    fetchData();
+    if(session?.user.id) fetchData();
   },[])
 
   const handleDelete = () =>{
