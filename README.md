@@ -1,4 +1,4 @@
-This is a [Next.js](https://nextjs.org/) project, [`PromptShare`](https://promptshare.netlify.app/).
+This is a [Next.js](https://nextjs.org/) project, [`PromptShare`](https://promptshare-next.vercel.app).
 
 ## Getting Started
 
