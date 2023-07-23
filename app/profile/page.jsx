@@ -6,9 +6,9 @@ import Profile from "@components/Profile";
 
 
 const MyProfile = () => {
-  const [posts, setPosts] = useState([]);
   const {data: session} = useSession();
   
+  const [posts, setPosts] = useState([]);
   useEffect(()=>{
     const fetchData = async ()=>{
       const res = await fetch(`/api/users/${session?.user.id}/posts`);
@@ -16,7 +16,8 @@ const MyProfile = () => {
       if(data) setPosts(data);
 
     }
-    if(session?.user.id) fetchData();
+    if(!session?.user.id) return
+    fetchData();
   },[])
 
   const handleDelete = () =>{
