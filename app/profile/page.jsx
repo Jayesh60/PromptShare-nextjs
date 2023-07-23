@@ -5,16 +5,18 @@ import { useRouter } from "next/navigation";
 import Profile from "@components/Profile";
 
 const MyProfile = () => {
+  const [posts, setPosts] = useState([]);
   const { data: session } = useSession();
 
-  const [posts, setPosts] = useState([]);
   useEffect(() => {
-    fetch(`/api/users/${session?.user.id}/posts`)
+    if(session?.user.id){
+      fetch(`/api/users/${session?.user.id}/posts`)
       .then((res) => res.json())
       .then((data) => setPosts(data))
       .finally(()=>
-      console.log("done  ")
+      console.log("done")
       )
+    }
   }, []);
 
   const handleDelete = () => {
