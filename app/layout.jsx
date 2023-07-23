@@ -11,17 +11,16 @@ export const metadata = {
 const Layout = ({ children }) => {
   return (
     <html lang="en">
-      <Provider>
-        <body className="bg-[#050816] scroll-smooth">
-          <Suspense fallback={<Loading />}>
+      <Suspense fallback={<Loading />}>
+        <Provider>
+          <body className="bg-[#050816] scroll-smooth">
             <Nav />
-          </Suspense>
-
-          <main className="flex bg-[#151030] flex-col justify-center items-center">
-            {children}
-          </main>
-        </body>
-      </Provider>
+            <main className="flex bg-[#151030] flex-col justify-center items-center">
+              {children}
+            </main>
+          </body>
+        </Provider>
+      </Suspense>
     </html>
   );
 };
