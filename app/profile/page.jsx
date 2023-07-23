@@ -9,14 +9,13 @@ const MyProfile = () => {
   const { data: session } = useSession();
 
   useEffect(() => {
-    if(session?.user.id){
-      fetch(`/api/users/${session?.user.id}/posts`)
-      .then((res) => res.json())
-      .then((data) => setPosts(data))
-      .finally(()=>
-      console.log("done")
-      )
+    const fetchData = async ()=>{
+      const res = await fetch(`/api/users/${session?.user.id}/posts`)
+      const data = await res.json();
+      console.log(data)
+      setPosts(data)
     }
+    fetchData()
   }, []);
 
   const handleDelete = () => {
