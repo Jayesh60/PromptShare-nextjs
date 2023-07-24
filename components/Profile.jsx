@@ -1,7 +1,6 @@
 import PromptCard from "./PromptCard";
 
 
-
 const Profile = ({ name, data, handleEdit, handleDelete }) => {
 
   return (
@@ -14,7 +13,7 @@ const Profile = ({ name, data, handleEdit, handleDelete }) => {
           <PromptCard
             key={post._id}
             post={post}
-            handleEdit={() => handleEdit && handleEdit(post)}
+            handleEdit={() => handleEdit && handleEdit(post._id)}
             handleDelete={() => handleDelete && handleDelete(post)}
           />
         ))}

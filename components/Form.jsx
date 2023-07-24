@@ -5,7 +5,7 @@ const Form = ({ type, post, submitting, setPost, handleSubmit }) => {
     <section className="w-full bg-[#151030]  max-w-full p-3 flex justify-start items-center  flex-col">
       <h1 className="text-center my-2 text-3xl text-gray-50 font-bold">{type} Post</h1>
       <p className=" flex text-justify justify-center items-center font-bold text-gray-300"> 
-        Share your prompts with the world and help them conquer their problems
+        {type} your prompt and help the world conquer their problems
       </p>
       <form
         onSubmit={handleSubmit}
@@ -26,7 +26,7 @@ const Form = ({ type, post, submitting, setPost, handleSubmit }) => {
             }}
             required
             placeholder="Write Your AI prompt"
-            className="bg-[#28244F] placeholder:text-white rounded-md p-2 resize-none "
+            className="bg-[#28244F] placeholder:text-white placeholder:flex rounded-md p-2 resize-none "
           />
         </label>
 
@@ -39,22 +39,22 @@ const Form = ({ type, post, submitting, setPost, handleSubmit }) => {
             name="tag"
             id="tag"
             placeholder="Tag"
-            // value={post.tag}
+            value={post.tag}
             onChange={(e) => {
               setPost({ ...post, tag: e.target.value });
             }}
             required 
-            className="bg-[#28244F]  placeholder:text-white placeholder:flex rounded-md p-2"
+            className="bg-[#28244F] text-gray-300 placeholder:text-gray-300 placeholder:flex rounded-md p-2"
           />
         </label>
         <div className= "flex justify-end items-center mx-3 mb-5 gap-4"> 
-          <Link href={"/"} className="px-5 py-1.5 text-white border border-gray-100 rounded">Cancel</Link>
+          <Link href={"/"} className="px-5 py-1.5 text-gray-300 border border-gray-100 rounded">Cancel</Link>
           <button
             type="submit"
             disabled={submitting}
-            className="px-5 py-1.5 bg-[#28244F] rounded text-white hover:bg-[#D9E8F7] hover:text-black ease-in-out duration-500"
+            className="px-5 py-1.5 bg-[#28244F] rounded text-gray-300 hover:bg-[#D9E8F7] hover:text-black ease-in-out duration-500"
           >
-            Create
+            {type}
           </button>
         </div>
       </form>

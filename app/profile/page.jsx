@@ -8,25 +8,24 @@ import Profile from "@components/Profile";
 const MyProfile = () => {
   const [posts, setPosts] = useState([]);
   const { data: session } = useSession();
+  const router = useRouter();
 
   useEffect(() => {
     const fetchData = async () => {
       const res = await fetch(`/api/users/${session?.user.id}/posts`);
       const data = await res.json();
-      console.log(data);
+      // console.log(data);
       setPosts(data);
     };
     fetchData();
   }, []);
 
-  const handleDelete = () => {
-    const fetchData = async () => {
-      const res = await fetch(`/api/users/${session?.user.id}/posts`);
-      const data = await res.json();
-      if (data) setPosts(data);
-    };
+  const handleDelete = (post) => {
+    
   };
-  const handleEdit = () => {};
+  const handleEdit = (post) => {
+      router.push(`/update-prompt?id=${post}`)
+  };
 
   return (
     <div className="h-full w-full max-w-[30rem]">
