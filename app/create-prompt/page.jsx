@@ -1,10 +1,12 @@
 "use client";
-import { Suspense, useState } from "react";
+import {  useState } from "react";
 import { useSession } from "next-auth/react";
+import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
-import Form from "@components/Form";
+const Form = dynamic(()=>import("@components/Form"))
 import Link from "next/link";
-import Loading from "./loading";
+
+
 
 const page = () => {
   const router = useRouter();
@@ -39,7 +41,6 @@ const page = () => {
 
   return (
     <>
-    <Suspense fallback={<Loading/>}>
       <title>Create Post | PromptShare</title>
       {session? (
         <Form
@@ -70,7 +71,6 @@ const page = () => {
       </div>
         
       )}
-    </Suspense>
     </>
   );
 };

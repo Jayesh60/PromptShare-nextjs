@@ -1,8 +1,10 @@
 import "../styles/global.css";
-import Nav from "@components/Nav";
-import Provider from "@components/Provider";
-import { Suspense } from "react";
-import Loading from "./loading";
+
+// import Provider from "@components/Provider";
+import dynamic from "next/dynamic";
+const Nav = dynamic(()=> import("@components/Nav"))
+const Provider = dynamic(()=> import("@components/Provider"))
+
 
 export const metadata = {
   title: "PromptShare",
@@ -11,7 +13,6 @@ export const metadata = {
 const Layout = ({ children }) => {
   return (
     <html lang="en">
-      <Suspense fallback={<Loading />}>
         <Provider>
           <body className="bg-[#050816] scroll-smooth">
             <Nav />
@@ -20,7 +21,6 @@ const Layout = ({ children }) => {
             </main>
           </body>
         </Provider>
-      </Suspense>
     </html>
   );
 };

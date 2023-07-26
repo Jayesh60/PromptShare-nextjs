@@ -5,6 +5,8 @@ import {
 } from '@utils/database'
 import User from "@models/user";
 
+// export const runtime = "edge"
+
 const handler = NextAuth({
     providers: [
         GoogleProvider({

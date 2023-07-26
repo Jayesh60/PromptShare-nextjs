@@ -1,6 +1,8 @@
 import Prompt from "@models/prompt";
 import { connectToDb } from "@utils/database";
 
+
+// export const runtime = "edge"
 export const POST = async (req) =>{
     const {userId, prompt, tag } = await req.json();
     

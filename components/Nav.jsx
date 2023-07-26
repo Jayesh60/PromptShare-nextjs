@@ -4,7 +4,6 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import { useSession, signIn, signOut, getProviders } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { Suspense } from "react";
 
 const Nav = () => {
   const router = useRouter();
@@ -40,7 +39,7 @@ const Nav = () => {
       </h1>
 
       {/* desktop */}
-      <Suspense >
+      
         <div className="sm:flex  hidden">
           {session?.user ? (
             <div className="flex justify-center items-center gap-3">
@@ -155,7 +154,7 @@ const Nav = () => {
             </>
           )}
         </div>
-      </Suspense>
+      
     </nav>
   );
 };

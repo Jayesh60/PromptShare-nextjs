@@ -3,7 +3,8 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import Profile from "@components/Profile";
+import dynamic from "next/dynamic";
+const Profile = dynamic(()=>import("@components/Profile"), {ssr: false})
 
 const MyProfile = () => {
   const [posts, setPosts] = useState([]);
