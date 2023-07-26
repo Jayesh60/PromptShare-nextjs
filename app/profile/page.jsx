@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
+
 const Profile = dynamic(()=>import("@components/Profile"), {ssr: false})
 
 const MyProfile = () => {
@@ -50,7 +51,7 @@ const MyProfile = () => {
           />
         </>
       ) : (
-        <>
+        <> 
           <div className="flex justify-center items-center text-gray-600">
             <div className="mt-5 flex border-2 rounded-lg border-gray-100 bg-gray-100 border-opacity-50 p-8 sm:flex-row flex-col">
               <div className="w-16 h-16 sm:mr-8 sm:mb-0 mb-4 inline-flex items-center justify-center rounded-full bg-yellow-100 text-yellow-500 flex-shrink-0">

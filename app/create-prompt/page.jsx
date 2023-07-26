@@ -3,7 +3,9 @@ import {  useState } from "react";
 import { useSession } from "next-auth/react";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
-const Form = dynamic(()=>import("@components/Form"))
+import Loading from "@app/loading";
+
+const Form = dynamic(()=>import("@components/Form"), {loading : ()=> <Loading/>})
 import Link from "next/link";
 
 

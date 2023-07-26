@@ -9,6 +9,7 @@ const Provider = dynamic(()=> import("@components/Provider"))
 export const metadata = {
   title: "PromptShare",
   description: "Discover and share ai prompts with global",
+  viewport : "width=device-width, initial-scale=1.0"
 };
 const Layout = ({ children }) => {
   return (
