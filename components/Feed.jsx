@@ -1,6 +1,5 @@
 "use client";
 import { useState, useEffect, Suspense } from "react";
-// import PromptCard from "./PromptCard";
 import dynamic from "next/dynamic";
 const PromptCard = dynamic(()=> import("./PromptCard"), {ssr:false})
 

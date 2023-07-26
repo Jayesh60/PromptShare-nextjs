@@ -5,36 +5,34 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
 
-const Profile = dynamic(()=>import("@components/Profile"), {ssr: false})
+const Profile = dynamic(() => import("@components/Profile"), { ssr: false });
 
 const MyProfile = () => {
   const [posts, setPosts] = useState([]);
   const { data: session } = useSession();
   const router = useRouter();
 
-
   const fetchData = async () => {
     const res = await fetch(`/api/users/${session?.user.id}/posts`);
     const data = await res.json();
-    
+
     setPosts(data);
   };
-  
-  useEffect(() => {  
-    
+
+  useEffect(() => {
     fetchData();
   }, []);
 
   const handleDelete = async (post) => {
     const data = await fetch(`/api/create-prompt/${post}`, {
-      method: 'DELETE',
-    })
-    if(!data.ok) return new Response("Error deleting prompt")
-    fetchData()
+      method: "DELETE",
+    });
+    if (!data.ok) return new Response("Error deleting prompt");
+    fetchData();
   };
 
   const handleEdit = (post) => {
-      router.push(`/update-prompt?id=${post}`)
+    router.push(`/update-prompt?id=${post}`);
   };
 
   return (
@@ -51,7 +49,7 @@ const MyProfile = () => {
           />
         </>
       ) : (
-        <> 
+        <>
           <div className="flex justify-center items-center text-gray-600">
             <div className="mt-5 flex border-2 rounded-lg border-gray-100 bg-gray-100 border-opacity-50 p-8 sm:flex-row flex-col">
               <div className="w-16 h-16 sm:mr-8 sm:mb-0 mb-4 inline-flex items-center justify-center rounded-full bg-yellow-100 text-yellow-500 flex-shrink-0">
@@ -71,7 +69,7 @@ const MyProfile = () => {
                 <h2 className="text-gray-900 text-lg title-font font-medium mb-3">
                   SIGN IN FIRST
                 </h2>
-                
+
                 <Link
                   href={"/"}
                   className="mt-3 text-yellow-500 inline-flex items-center"
