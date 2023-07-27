@@ -6,11 +6,7 @@ import dynamic from "next/dynamic";
 import Link from "next/link";
 import Loading from "./loading";
 
-const Form = dynamic(
-  () => {
-    import("@components/Form");
-  }
-);
+const Form = dynamic(() => import("@components/Form"), {ssr:false})
 
 const page = () => {
   const router = useRouter();
