@@ -96,17 +96,17 @@ const Nav = () => {
                 onClick={() => setToggle((prev) => !prev)}
               />
               {toggle && (
-                <div className="absolute h-[20vh] right-0 top-full mt-3 w-full p-3 rounded-md bg-gradient-to-r from-yellow-200 to-orange-200 min-w-[140px] flex flex-col gap-2 justify-end items-end ">
+                <div className="absolute h-[20vh] right-0 top-full mt-3 w-full p-3 rounded-md bg-slate-700 min-w-[140px] opacity-80 flex flex-col gap-2 justify-end items-end ">
                   <Link
                     href="/profile"
-                    className="text-sm font-inter text-gray-900 hover:text-gray-500 font-medium "
+                    className="text-sm font-inter text-white hover:text-gray-500 font-medium "
                     onClick={() => setToggle(false)}
                   >
                     Profile
                   </Link>
                   <Link
                     href="/create-prompt"
-                    className="text-sm font-inter text-gray-900 hover:text-gray-500 font-medium "
+                    className="text-sm font-inter text-white hover:text-gray-500 font-medium "
                     onClick={() => setToggle(false)}
                   >
                     Create Post
