@@ -1,7 +1,7 @@
 "use client";
-import { useState, useEffect, Suspense } from "react";
+import { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
-const PromptCard = dynamic(()=> import("./PromptCard"), {ssr:false})
+const PromptCard = dynamic(() => import("./PromptCard"), { ssr: false });
 
 const PromptCardList = ({ data, handleTagClick }) => {
   return (
@@ -18,12 +18,40 @@ const PromptCardList = ({ data, handleTagClick }) => {
 };
 
 const Feed = () => {
+  const [posts, setPosts] = useState([]);
+
   const [searchText, setSearchText] = useState("");
-  const handleSearchChange = (e) => {
-    e.preventDefault();
+  const [searchTimeout, setSearchTimeout] = useState(null);
+  const [searchedResults, setSearchedResults] = useState([]);
+
+  const filterPrompts = (search) => {
+    const regex = new RegExp(search, "i");
+    return posts.filter((item) => (
+
+      regex.test(item.creator.username) ||
+      regex.test(item.tag) ||
+      regex.test(item.prompt)
+    ));
   };
 
-  const [posts, setPosts] = useState([]);
+  const handleSearchChange = (e) => {
+    clearTimeout(searchTimeout);
+    setSearchText(e.target.value);
+
+    setSearchTimeout(
+      setTimeout(() => {
+        const searchResult = filterPrompts(e.target.value);
+        setSearchedResults(searchResult);
+      }, 500)
+    );
+  };
+
+  const handleTagClick = (tag) => {
+    setSearchText(tag);
+    const result = filterPrompts(tag);
+    setSearchedResults(result);
+  };
+
   useEffect(() => {
     const fetchPost = async () => {
       const response = await fetch("/api/create-prompt");
@@ -38,18 +66,27 @@ const Feed = () => {
       <div className="flex flex-1">
         <div className="flex-0.25 w-full sm:flex hidden">profile</div>
         <div className=" w-full  flex-0.5">
-          <form className="relative w-full flex justify-center">
+          <div className="relative w-full flex justify-center">
             <input
               type="text"
-              placeholder="Coming soon..."
-              className="bg-[#28244F] placeholder:text-white w-full max-w-[38rem] h-14 md:h-12 outline-none  text-base font-semibold p-2 rounded mb-10"
+              placeholder="Search..."
+              className="bg-[#28244F] placeholder:text-white w-full max-w-[38rem] h-14 md:h-12 outline-none text-gray-200  text-base font-semibold p-2 rounded mb-10"
               value={searchText}
               onChange={handleSearchChange}
             />
-          </form>
-          <PromptCardList data={posts} handleTagclick={() => {}} />
+          </div>
+          {searchText ? (
+            <PromptCardList
+              data={searchedResults}
+              handleTagClick={handleTagClick}
+            />
+          ) : (
+            <PromptCardList data={posts} handleTagClick={handleTagClick} />
+          )}
         </div>
-        <div className="w-full flex-0.25 sm:flex hidden">add prompt shortcut</div>
+        <div className="w-full flex-0.25 sm:flex hidden">
+          add prompt shortcut
+        </div>
       </div>
     </section>
   );

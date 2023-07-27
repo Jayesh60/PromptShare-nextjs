@@ -1,5 +1,5 @@
 "use client";
-import { Suspense, useState } from "react";
+import {  useState } from "react";
 import Image from "next/image";
 import { useSession } from "next-auth/react";
 import { usePathname, useRouter } from "next/navigation";
@@ -51,7 +51,7 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
           >
             {post.prompt}
           </p>
-          <p className="cursor-pointer bg-gradient-to-r from-yellow-300 to-orange-300 text-transparent bg-clip-text mb-2 sm:mb-0">
+          <p onClick={()=> handleTagClick && handleTagClick(post.tag)} className="cursor-pointer bg-gradient-to-r from-yellow-300 to-orange-300 text-transparent bg-clip-text mb-2 sm:mb-0">
             {post.tag}
           </p>
         </div>
