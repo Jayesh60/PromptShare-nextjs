@@ -65,10 +65,10 @@ const Feed = () => {
   return (
     <section className="px-4 md:px-14  py-5 bg-[#151030] w-full">
       <div className="flex w-full gap-4">
-        <div className="flex w-[20%]">
+        <div className="sm:flex hidden w-[20%]">
          <ProfileShortcut/>
         </div>
-        <div className=" w-[50%]">
+        <div className="w-full sm:w-[50%]">
           <div className="relative w-full flex justify-center">
             <input
               type="text"
