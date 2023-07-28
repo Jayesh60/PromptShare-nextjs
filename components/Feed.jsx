@@ -2,7 +2,7 @@
 import { useSession } from "next-auth/react";
 import { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
-const PromptCard = dynamic(() => import("./PromptCard"));
+const PromptCard = dynamic(() => import("./PromptCard"), {ssr:false});
 const ProfileShortcut = dynamic(() => import("./ProfileShortcut"));
 const AddPromptShortcut = dynamic(() => import("./AddPromptShortcut"));
 
