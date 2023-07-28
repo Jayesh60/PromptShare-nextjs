@@ -38,7 +38,7 @@ const Form = ({ type, post, submitting, setPost, handleSubmit }) => {
             type="text"
             name="tag"
             id="tag"
-            placeholder="Tag"
+            placeholder="Tag (#chatgpt, #midjourney)"
             value={post.tag}
             onChange={(e) => {
               setPost({ ...post, tag: e.target.value });
