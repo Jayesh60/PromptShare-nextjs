@@ -26,8 +26,8 @@ const Form = ({ type, post, submitting, setPost, handleSubmit }) => {
             }}
             required
             placeholder="Write Your AI prompt"
-            className="bg-[#28244F] placeholder:text-white placeholder:flex rounded-md p-2 resize-none "
-          />
+            className="bg-[#28244F] text-gray-300 placeholder:text-white placeholder:flex rounded-md p-2 resize-none "
+          ></textarea>
         </label>
 
         <label className="flex flex-col">
