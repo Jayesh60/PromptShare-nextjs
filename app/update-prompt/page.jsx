@@ -4,7 +4,6 @@ import { useSession } from "next-auth/react";
 import { useRouter, useSearchParams } from "next/navigation";
 import dynamic from "next/dynamic";
 import Link from "next/link";
-import Loading from "./loading";
 
 const Form = dynamic(() => import("@components/Form"), {ssr:false})
 

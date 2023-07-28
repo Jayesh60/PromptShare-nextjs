@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 const PromptCard = dynamic(() => import("./PromptCard"), { ssr: false });
+const ProfileShortcut = dynamic(() => import("./ProfileShortcut"));
 
 const PromptCardList = ({ data, handleTagClick }) => {
   return (
@@ -62,15 +63,17 @@ const Feed = () => {
   }, []);
 
   return (
-    <section className="px-4 md:px-10 py-5 bg-[#151030] w-full">
-      <div className="flex flex-1">
-        <div className="flex-0.25 w-full sm:flex hidden">profile</div>
-        <div className=" w-full  flex-0.5">
+    <section className="px-4 md:px-14  py-5 bg-[#151030] w-full">
+      <div className="flex w-full gap-4">
+        <div className="flex w-[20%]">
+         <ProfileShortcut/>
+        </div>
+        <div className=" w-[50%]">
           <div className="relative w-full flex justify-center">
             <input
               type="text"
               placeholder="Search..."
-              className="bg-[#28244F] placeholder:text-white w-full max-w-[38rem] h-14 md:h-12 outline-none text-gray-200  text-base font-semibold p-2 rounded mb-10"
+              className="bg-gray-200 bg-opacity-30 backdrop-blur-sm placeholder:text-white w-full max-w-[38rem] h-14 md:h-12 outline-none text-gray-200  text-base font-semibold p-2 rounded mb-10"
               value={searchText}
               onChange={handleSearchChange}
             />
@@ -84,7 +87,7 @@ const Feed = () => {
             <PromptCardList data={posts} handleTagClick={handleTagClick} />
           )}
         </div>
-        <div className="w-full flex-0.25 sm:flex hidden">
+        <div className="w-[20%]  flex-0.25 sm:flex hidden">
           add prompt shortcut
         </div>
       </div>
