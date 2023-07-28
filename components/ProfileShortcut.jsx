@@ -5,7 +5,7 @@ import Link from "next/link";
 const ProfileShortcut = () => {
   const { data: session } = useSession();
   return (
-    <section className="mx-5 max-h-[60vh]  rounded bg-gray-200 bg-opacity-30 backdrop-blur-sm h-full w-full">
+    <section className="mx-5 max-h-[60vh] z-100 top-20 sticky rounded bg-gray-200 bg-opacity-30 backdrop-blur-sm h-full w-full">
       {session ? (
         <>
           <div className="pt-5 py-1  border-b-[1px] border-gray-400  w-full flex justify-center items-center">

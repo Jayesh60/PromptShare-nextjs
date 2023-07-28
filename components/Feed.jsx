@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 const PromptCard = dynamic(() => import("./PromptCard"), { ssr: false });
 const ProfileShortcut = dynamic(() => import("./ProfileShortcut"));
+const AddPromptShortcut = dynamic(() => import("./AddPromptShortcut"));
 
 const PromptCardList = ({ data, handleTagClick }) => {
   return (
@@ -63,8 +64,8 @@ const Feed = () => {
   }, []);
 
   return (
-    <section className="px-4 md:px-14  py-5 bg-[#151030] w-full">
-      <div className="flex w-full gap-4">
+    <section className="px-4 md:px-2  py-5 bg-[#151030] w-full">
+      <div className="flex w-full justify-center">
         <div className="sm:flex hidden w-[20%]">
          <ProfileShortcut/>
         </div>
@@ -87,8 +88,8 @@ const Feed = () => {
             <PromptCardList data={posts} handleTagClick={handleTagClick} />
           )}
         </div>
-        <div className="w-[20%]  flex-0.25 sm:flex hidden">
-          add prompt shortcut
+        <div className="sm:flex hidden w-[20%]">
+          <AddPromptShortcut/>
         </div>
       </div>
     </section>
