@@ -28,16 +28,16 @@ const Nav = () => {
           height={50}
           width={60}
           alt="Logo"
-          className="rounded-full object-contain mr-2"
+          className="rounded-full object-contain"
         />
-        <h1 className="text-xl md:text-3xl font-extrabold bg-gradient-to-r from-yellow-300 to-orange-400 text-transparent bg-clip-text sm:text-white">
+        <h1 className="text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-yellow-300 to-orange-400 text-transparent bg-clip-text sm:text-white">
           PromptShare
         </h1>
       </Link>
       <h1 className="text-center sm:flex hidden text-xl md:text-3xl font-extrabold  bg-gradient-to-r from-yellow-300 to-orange-400 text-transparent leading-none bg-clip-text ">
         Discover and Share AI Prompt's
       </h1>
-
+      
       {/* desktop */}
       
         <div className="sm:flex  hidden">
@@ -84,7 +84,7 @@ const Nav = () => {
         </div>
 
         {/* mobile view */}
-        <div className="sm:hidden  flex">
+        <div className="sm:hidden flex">
           {session?.user ? (
             <div className="flex relative justify-center items-center gap-5 md:gap-8">
               <Image

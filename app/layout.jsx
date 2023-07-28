@@ -15,9 +15,9 @@ const Layout = ({ children }) => {
   return (
     <html lang="en">
         <Provider>
-          <body className="bg-[#050816] scroll-smooth">
+          <body className="bg-[#151030] scroll-smooth">
             <Nav />
-            <main className="flex bg-[#151030] flex-col justify-center items-center">
+            <main className="flex flex-col justify-center items-center">
               {children}
             </main>
           </body>

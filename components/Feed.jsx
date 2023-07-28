@@ -1,4 +1,5 @@
 "use client";
+import { useSession } from "next-auth/react";
 import { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 const PromptCard = dynamic(() => import("./PromptCard"), { ssr: false });
@@ -20,6 +21,7 @@ const PromptCardList = ({ data, handleTagClick }) => {
 };
 
 const Feed = () => {
+  const { data: session } = useSession();
   const [posts, setPosts] = useState([]);
 
   const [searchText, setSearchText] = useState("");
@@ -28,12 +30,12 @@ const Feed = () => {
 
   const filterPrompts = (search) => {
     const regex = new RegExp(search, "i");
-    return posts.filter((item) => (
-
-      regex.test(item.creator.username) ||
-      regex.test(item.tag) ||
-      regex.test(item.prompt)
-    ));
+    return posts.filter(
+      (item) =>
+        regex.test(item.creator.username) ||
+        regex.test(item.tag) ||
+        regex.test(item.prompt)
+    );
   };
 
   const handleSearchChange = (e) => {
@@ -65,16 +67,21 @@ const Feed = () => {
 
   return (
     <section className="px-4 md:px-2  py-5 bg-[#151030] w-full">
-      <div className="flex w-full justify-center">
-        <div className="sm:flex hidden w-[20%]">
-         <ProfileShortcut/>
-        </div>
+      <div className="sm:flex sm:flex-row flex flex-col-reverse w-full justify-center">
+        {session && (
+          <>
+            <div className="sm:flex hidden w-[20%]">
+              <ProfileShortcut />
+            </div>
+          </>
+        )}
+
         <div className="w-full sm:w-[50%]">
           <div className="relative w-full flex justify-center">
             <input
               type="text"
               placeholder="Search..."
-              className="bg-gray-200 bg-opacity-30 backdrop-blur-sm placeholder:text-white w-full max-w-[38rem] h-14 md:h-12 outline-none text-gray-200  text-base font-semibold p-2 rounded mb-10"
+              className="bg-gray-200 bg-opacity-30 backdrop-blur-sm placeholder:text-white w-full max-w-[30rem] h-8 sm:h-10 outline-none text-gray-200  text-sm sm:font-semibold p-2 rounded sm:mb-6 mb-0"
               value={searchText}
               onChange={handleSearchChange}
             />
@@ -88,9 +95,13 @@ const Feed = () => {
             <PromptCardList data={posts} handleTagClick={handleTagClick} />
           )}
         </div>
-        <div className="sm:flex hidden w-[20%]">
-          <AddPromptShortcut/>
-        </div>
+        {session && (
+          <>
+            <div className="flex w-full sm:w-[20%] mb-3 sm:mb-0">
+              <AddPromptShortcut />
+            </div>
+          </>
+        )}
       </div>
     </section>
   );

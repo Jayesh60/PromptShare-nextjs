@@ -17,7 +17,7 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
   };
   return (
     <div className="md:p-0 w-full mt-2">
-      <div className="flex rounded-lg h-full md:p-3 p-2 flex-col bg-gray-200 bg-opacity-30 backdrop-blur-sm">
+      <div className="flex rounded h-full md:p-3 p-2 flex-col bg-gray-200 bg-opacity-30 backdrop-blur-sm">
         <div className="flex items-center mb-3">
           <Image
             alt="user profile photo"
