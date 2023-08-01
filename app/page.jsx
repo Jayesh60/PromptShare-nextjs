@@ -1,5 +1,4 @@
 import dynamic from 'next/dynamic';
-import Loading from './loading';
 
 const Feed = dynamic(
   () => import('@components/Feed'),

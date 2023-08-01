@@ -1,5 +1,5 @@
 import Prompt from "@models/prompt";
-import { connectToDb } from "@utils/database";
+import { connectToDb } from "@utils/database.js";
 
 
 // export const runtime = "edge"
