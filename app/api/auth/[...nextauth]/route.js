@@ -12,9 +12,7 @@ const handler = NextAuth({
         GoogleProvider({
             clientId: process.env.GOOGLE_ID,
             clientSecret: process.env.GOOGLE_SECRET,
-
             authorizationUrl: 'https://accounts.google.com/o/oauth2/v2'
-
         })
     ],
     callbacks: {
@@ -24,7 +22,7 @@ const handler = NextAuth({
             const sessionUser = await User.findOne({
                 email: session.user.email
             })
-            session.user.id = sessionUser._id.toString()
+            session.user.id = await sessionUser._id.toString()
             return session;
         },
         async signIn({
