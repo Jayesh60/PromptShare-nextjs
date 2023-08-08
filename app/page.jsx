@@ -2,7 +2,6 @@ import dynamic from 'next/dynamic';
 
 const Feed = dynamic(
   () => import('@components/Feed'),
-  {ssr: false},
 )
 
 const Home = () => {

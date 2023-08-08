@@ -1,9 +1,8 @@
 import "../styles/global.css";
 
-// import Provider from "@components/Provider";
+import Provider from "@components/Provider";
 import dynamic from "next/dynamic";
 const Nav = dynamic(()=> import("@components/Nav"))
-const Provider = dynamic(()=> import("@components/Provider"))
 
 
 export const metadata = {
