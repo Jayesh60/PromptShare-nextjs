@@ -23,6 +23,7 @@ export const metadata = {
   keywords: ["Next.js", "React", "JavaScript", "Prompts", "AI", "AI Prompts", "Jayesh", "Wadhe", "Improve", "Discover", "prompts", "prompt"],
   authors: [{ name: "Jayesh" }, { name: "Jayesh", url: "https://promptshare-next.vercel.app" }],
   colorScheme: "dark",
+  themeColor: 'black',
   creator: "jayesh wadhe",
   publisher: "jayesh wadhe",
   formatDetection: {
