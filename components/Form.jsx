@@ -4,7 +4,7 @@ const Form = ({ type, post, submitting, setPost, handleSubmit }) => {
   return (
     <section className="w-full bg-[#151030]  max-w-full p-3 flex justify-start items-center  flex-col">
       <h1 className="text-center my-2 text-3xl text-gray-50 font-bold">{type} Post</h1>
-      <p className=" flex text-justify justify-center items-center font-bold text-gray-300"> 
+      <p className=" flex text-justify justify-center items-center leading-none font-bold text-gray-300"> 
         {type} your prompt and help the world conquer their problems
       </p>
       <form
