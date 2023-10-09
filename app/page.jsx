@@ -1,8 +1,6 @@
 import dynamic from 'next/dynamic';
+import Feed from '@components/Feed';
 
-const Feed = dynamic(
-  () => import('@components/Feed'),
-)
 
 const Home = () => {
   return (
