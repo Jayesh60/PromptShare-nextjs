@@ -16,12 +16,11 @@ const Nav = () => {
       const response = await getProviders();
       setProviders(response);
     };
-
     setUpProviders();
   }, []);
 
   return (
-    <nav className="flex sm:p-5 p-4 z-50 top-0 sticky bg-[#050816]  w-full gap-1 justify-between items-center">
+    <nav className="flex md:px-14 sm:p-2 p-4 z-[99] top-0 sticky bg-[#050816]  w-full gap-1 justify-between items-center ">
       <Link href={"/"} className="flex justify-center items-center">
         <Image
           src="/assets/images/main-logo-white-transparent.png"
@@ -45,14 +44,14 @@ const Nav = () => {
             <div className="flex justify-center items-center gap-3">
               <Link
                 href="/create-prompt"
-                className="font-bold py-1 px-3 bg-[#28244F] text-center text-white text-lg hover:bg-[#D9E8F7] hover:text-black ease-in-out duration-500 rounded"
+                className="font-bold py-1 px-3 bg-[#28244F] text-center rounded"
               >
                 Add Prompt
               </Link>
               <button
                 type="button"
                 onClick={() => signOut()}
-                className="font-bold  bg-[#28244F]  rounded py-1 px-3 text-lg hover:text-black ease-in-out duration-500 hover:bg-[#D9E8F7] text-white"
+                className="font-bold  bg-[#28244F]  rounded py-1 px-3 "
               >
                 Sign Out
               </button>
@@ -74,7 +73,7 @@ const Nav = () => {
                     type="button"
                     key={provider.name}
                     onClick={() => signIn(provider.id)}
-                    className="font-bold  py-1 px-3 bg-[#28244F] text-white text-center text-lg hover:bg-[#D9E8F7] ease-in-out duration-500 hover:text-black rounded"
+                    className="font-bold  py-1 px-3 bg-[#28244F] text-white text-center  rounded"
                   >
                     Sign In
                   </button>

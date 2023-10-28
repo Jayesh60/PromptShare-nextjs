@@ -15,10 +15,8 @@ const MyProfile = () => {
   const fetchData = async () => {
     const res = await fetch(`/api/users/${session?.user.id}/posts`);
     const data = await res.json();
-
     setPosts(data);
   };
-
   useEffect(() => {
     fetchData();
   }, []);
@@ -28,7 +26,7 @@ const MyProfile = () => {
       method: "DELETE",
     });
     if (!data.ok) return new Response("Error deleting prompt");
-    fetchData();
+    await fetchData();
   };
 
   const handleEdit = (post) => {
