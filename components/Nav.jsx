@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import { useSession, signIn, signOut, getProviders } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import LoginLogo from "@public/assets/icons/login.svg";
 
 const Nav = () => {
   const router = useRouter();
@@ -20,14 +21,14 @@ const Nav = () => {
   }, []);
 
   return (
-    <nav className="flex md:px-14 sm:p-2 p-4 z-[99] top-0 sticky bg-[#050816]  w-full gap-1 justify-between items-center ">
-      <Link href={"/"} className="flex justify-center items-center">
+    <nav className="flex md:px-14 sm:p-2 p-2 z-[100] top-0 sticky bg-[#050816]  w-full gap-1 justify-between items-center ">
+      <Link href={"/"} className="flex px-2 justify-center items-center">
         <Image
           src="/assets/images/main-logo-white-transparent.png"
           height={50}
           width={60}
           alt="Logo"
-          className="rounded-full object-contain"
+          className="rounded-full object-contain hidden md:flex"
         />
         <h1 className="text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-yellow-300 to-orange-400 text-transparent bg-clip-text sm:text-white">
           PromptShare
@@ -95,7 +96,7 @@ const Nav = () => {
                 onClick={() => setToggle((prev) => !prev)}
               />
               {toggle && (
-                <div className="absolute h-[20vh] right-0 top-full mt-3 w-full p-3 rounded-md bg-slate-700 min-w-[140px] opacity-80 flex flex-col gap-2 justify-end items-end ">
+                <div className="absolute h-[20vh] right-4 top-full mt-3 w-full p-3 rounded-md bg-slate-800 min-w-[140px] opacity-90 flex flex-col gap-2 justify-end items-end ">
                   <Link
                     href="/profile"
                     className="text-sm font-inter text-white hover:text-gray-500 font-medium "
@@ -131,9 +132,9 @@ const Nav = () => {
                     type="button"
                     key={provider.name}
                     onClick={() => signIn(provider.id, { callbackUrl: "/" })}
-                    className=" text-white flex flex-col items-center justify-center font-semibold p-1 sm:p-2  rounded"
+                    className=" text-white flex flex-row gap-2 items-center justify-center font-semibold p-1 sm:p-2  rounded"
                   >
-                    <svg
+                    {/* <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="28"
                       height="28"
@@ -147,8 +148,9 @@ const Nav = () => {
                         fill="currentColor"
                         d="M26.749 24.93A13.99 13.99 0 1 0 2 16a13.899 13.899 0 0 0 3.251 8.93l-.02.017c.07.084.15.156.222.239c.09.103.187.2.28.3c.28.304.568.596.87.87c.092.084.187.162.28.242c.32.276.649.538.99.782c.044.03.084.069.128.1v-.012a13.901 13.901 0 0 0 16 0v.012c.044-.031.083-.07.128-.1c.34-.245.67-.506.99-.782c.093-.08.188-.159.28-.242c.302-.275.59-.566.87-.87c.093-.1.189-.197.28-.3c.071-.083.152-.155.222-.24ZM16 8a4.5 4.5 0 1 1-4.5 4.5A4.5 4.5 0 0 1 16 8ZM8.007 24.93A4.996 4.996 0 0 1 13 20h6a4.996 4.996 0 0 1 4.993 4.93a11.94 11.94 0 0 1-15.986 0Z"
                       />
-                    </svg>
-                    <p className="text-center">Sign In</p>
+                    </svg> */}
+                    <Image src={LoginLogo} width={20}  height={30} alt="login"/>
+                    <p className="text-center text-sm">Sign In</p>
                   </button>
                 ))}
             </>

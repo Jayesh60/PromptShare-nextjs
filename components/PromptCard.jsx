@@ -39,7 +39,7 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
               width={28}
               height={28}
               alt="copy icon"
-              className="cursor-pointer mx-3 p-1 rounded opacity-70 backdrop-blur-xl bg-[#D9E8F7] justify-end"
+              className={`cursor-pointer mx-3 p-1 rounded opacity-70 backdrop-blur-xl bg-[#D9E8F7] justify-end`}
               onClick={handleCopy}
             />
           </div>

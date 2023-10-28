@@ -68,7 +68,7 @@ const Feed = () => {
   }, []);
 
   return (
-    <section className="px-4 md:px-2 py-2 bg-[#151030] w-full">
+    <section className="px-4 md:px-2 py-2 bg-[#000000d3] w-full">
       <div className="sm:flex sm:flex-row flex flex-col-reverse w-full justify-center">
         {/* {session && (
           <>
