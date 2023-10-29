@@ -1,8 +1,9 @@
 "use client";
-import {  useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import { useSession } from "next-auth/react";
 import { usePathname, useRouter } from "next/navigation";
+import { motion } from "framer-motion";
 
 const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
   const { data: session } = useSession();
@@ -18,18 +19,27 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
   return (
     <div className="md:p-0 w-full mt-2">
       <div className="flex rounded h-full md:p-3 p-2 flex-col bg-gray-200 bg-opacity-30 backdrop-blur-sm">
-        <div className="flex items-center mb-3">
-          <Image
-            alt="user profile photo"
-            src={post.creator?.image}
-            width={40}
-            height={40}
-            className="mr-3 items-center inline-flex justify-center rounded-full p-1"
-          />
-          <h2 className="text-gray-50 text-base font-medium">
-            {post.creator.username}
-          </h2>
-          <div className="flex justify-end w-full ">
+        <div className="flex justify-between items-center mb-3">
+          <div className="flex justify-center items-center">
+            <Image
+              alt="user profile photo"
+              src={post.creator?.image}
+              width={40}
+              height={40}
+              className="mr-3 items-center inline-flex justify-center rounded-full p-1"
+            />
+            <h2 className="text-gray-50 text-base font-medium">
+              {post.creator.username}
+            </h2>
+          </div>
+
+          <motion.span
+            className="flex"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            whileFocus={{ scale: 1 }}
+          >
+            {copied && <h1 className="italic text-orange-400">copied</h1>}
             <Image
               src={
                 copied === post.prompt
@@ -42,7 +52,7 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
               className={`cursor-pointer mx-3 p-1 rounded opacity-70 backdrop-blur-xl bg-[#D9E8F7] justify-end`}
               onClick={handleCopy}
             />
-          </div>
+          </motion.span>
         </div>
         <div className="flex-grow">
           <p
@@ -51,7 +61,10 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
           >
             {post.prompt}
           </p>
-          <p onClick={()=> handleTagClick && handleTagClick(post.tag)} className="cursor-pointer bg-gradient-to-r from-yellow-300 to-orange-300 text-transparent bg-clip-text mb-2 sm:mb-0">
+          <p
+            onClick={() => handleTagClick && handleTagClick(post.tag)}
+            className="cursor-pointer bg-gradient-to-r from-yellow-300 to-orange-300 text-transparent bg-clip-text mb-2 sm:mb-0"
+          >
             {post.tag}
           </p>
         </div>
