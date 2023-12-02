@@ -3,6 +3,7 @@ import Prompt from "@models/prompt";
 import User from "@models/user";
 
 // export const runtime = "edge"
+export const dynamic = 'force-dynamic'
 
 export const GET = async () =>{
     try {

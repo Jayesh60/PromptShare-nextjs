@@ -59,7 +59,6 @@ const Feed = () => {
   useEffect(() => {
     const fetchPost = async () => {
       const response = await axios.get("/api/create-prompt");
-      // const data = await response.json();
       setPosts(response.data);
     };
     fetchPost();
