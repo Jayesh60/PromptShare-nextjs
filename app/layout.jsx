@@ -58,7 +58,7 @@ const Layout = ({ children }) => {
   return (
     <html lang="en">
       <Provider>
-        <body className="bg-[#151030] scroll-smooth">
+        <body className=" scroll-smooth">
           <Nav />
           <main className="flex flex-col justify-center items-center">
             <Suspense fallback="Load.....">

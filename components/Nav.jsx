@@ -29,9 +29,9 @@ const Nav = () => {
       </Link>
       {/* desktop */}
         <div className="sm:flex h-full hidden justify-center items-center">
-          <Link href={'/'} className={`${path === '/' ? 'text-white border-b border-b-[#6366F1]' : 'text-gray-400'} h-full flex justify-center items-center py-1.5 px-2 hover:text-white`}>Home</Link>
-          <Link href={'/create-prompt'} className={`${path === '/create-prompt' ? 'text-white border-b border-b-[#6366F1]' : 'text-gray-400'} h-full flex justify-center items-center py-1.5 px-2  hover:text-white`}>Publish</Link>
-          <Link href={'/profile'} className={`${path === '/profile' ? 'text-white border-b border-b-[#6366F1]' : 'text-gray-400'} h-full flex justify-center items-center  py-1.5 px-2  hover:text-white`}>Account</Link>
+          <Link href={'/'} className={`${path === '/' ? 'text-white border-b border-b-[#6366F1]' : 'text-gray-400'} h-full flex justify-center items-center py-1.5 px-2 hover:text-white duration-300`}>Home</Link>
+          <Link href={'/create-prompt'} className={`${path === '/create-prompt' ? 'text-white border-b border-b-[#6366F1]' : 'text-gray-400'} h-full flex justify-center items-center py-1.5 px-2  hover:text-white duration-300`}>Publish</Link>
+          <Link href={'/profile'} className={`${path === '/profile' ? 'text-white border-b border-b-[#6366F1]' : 'text-gray-400'} h-full flex justify-center items-center  py-1.5 px-2  hover:text-white duration-300`}>Account</Link>
         </div>
 
         <div className="sm:flex  hidden">
@@ -39,9 +39,10 @@ const Nav = () => {
             <button
             type="button"
             onClick={() => signOut()}
-            className="font-bold  bg-[#28244F]  rounded py-1 px-3 "
+            className="font-medium opacity-90  py-1 px-4 to-indigo-600 via-indigo-800 from-indigo-800 text-white text-center  rounded-md bg-gradient-to-t hover:brightness-110 drop-shadow-get-started"
+
           >
-            Sign Out
+            Log Out
           </button>
           ) : (
             <>

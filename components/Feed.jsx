@@ -2,6 +2,7 @@
 import { useSession } from "next-auth/react";
 import { useState, useEffect, Suspense } from "react";
 import dynamic from "next/dynamic";
+import Link from "next/link";
 const PromptCard = dynamic(() => import("./PromptCard"));
 
 const PromptCardList = ({ data, handleTagClick }) => {
@@ -58,23 +59,33 @@ const Feed = () => {
     const fetchPost = async () => {
       const response = await fetch("/api/create-prompt");
       const data = await response.json();
-        setPosts(data);
+      setPosts(data);
     };
     fetchPost();
   }, []);
 
   return (
-    <section className="px-4 md:px-2 py-2 bg-[#000000d3] w-full">
+    <section className="px-4 md:px-2 py-2 bg-zinc-800 w-full">
       <div className="sm:flex sm:flex-row flex flex-col-reverse w-full justify-center">
         <div className="w-full sm:w-[50%]">
-          <div className="w-full flex justify-center">
-            <input
-              type="text"
-              placeholder="Search..."
-              className="bg-gray-200 bg-opacity-30 backdrop-blur-sm placeholder:text-white w-full max-w-[30rem] h-8 sm:h-8 outline-none text-gray-200  text-sm sm:font-semibold p-2 rounded sm:mb-1 mb-0"
-              value={searchText}
-              onChange={handleSearchChange}
-            />
+          <div className="w-full flex-col py-16 gap-5 flex justify-center items-center">
+            <div className="text-center justify-center w-full items-center flex flex-col gap-3">
+              <Link href={'/'} className=" text-5xl font-sans font-semibold py-2">
+              𝙋𝙧𝙤𝙢𝙥𝙩𝙎𝙝𝙖𝙧𝙚
+              </Link>
+              <p className="mt-2 w-fit text-sm text-indigo-300 text-center font-medium shadow-sm hover:shadow-md bg-indigo-300 bg-opacity-5 hover:bg-opacity-10 border border-indigo-300 border-opacity-10 hover:border-opacity-20 transition-all rounded-md px-4 md:px-6 py-2 cursor-pointer"> 
+                Discover AI Powered Prompts
+              </p>
+            </div>
+            <div className="flex w-full justify-center items-center relative">
+              <input
+                type="text"
+                placeholder="Prompting..."
+                className="relative bg-zinc-700 flex-1 pl-12 pr-12 rounded-full text-sm px-4 py-2.5 focus:outline-none focus:ring-1 focus:ring-indigo-700  bg-opacity-30 backdrop-blur-sm placeholder:text-gray-400 w-full max-w-[30rem] h-12 outline-none text-gray-200 sm:font-semibold p-2 sm:mb-1 mb-0"
+                value={searchText}
+                onChange={handleSearchChange}
+              />
+            </div>
           </div>
           <Suspense fallback="loafing...">
             {searchText ? (
