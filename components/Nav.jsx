@@ -4,7 +4,6 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import { useSession, signIn, signOut, getProviders } from "next-auth/react";
 import { usePathname } from "next/navigation";
-import LoginLogo from "@public/assets/icons/login.svg";
 
 const Nav = () => {
   const path = usePathname();
@@ -21,7 +20,7 @@ const Nav = () => {
   }, []);
 
   return (
-    <nav className="flex px-2 p-0 z-[100] h-[56px] top-0 sticky bg-opacity-80 border-t-zinc-700  bg-zinc-900  w-full backdrop-blur gap-1 justify-between items-center ">
+    <nav className="flex px-6 md:px-[18%] p-0 z-[100] h-[56px] top-0 sticky bg-opacity-80 border-t-zinc-700  bg-zinc-900  w-full backdrop-blur gap-1 justify-between items-center border-b border-zinc-700">
       <Link href={"/"} className="flex justify-center items-center">
         <h1 className="text-2xl md:text-2xl font-extrabold bg-gradient-to-r from-yellow-300 to-orange-400 text-transparent bg-clip-text sm:text-white">
           PromptShare
@@ -29,9 +28,9 @@ const Nav = () => {
       </Link>
       {/* desktop */}
         <div className="sm:flex h-full hidden justify-center items-center">
-          <Link href={'/'} className={`${path === '/' ? 'text-white border-b border-b-[#6366F1]' : 'text-gray-400'} h-full flex justify-center items-center py-1.5 px-2 hover:text-white duration-300`}>Home</Link>
-          <Link href={'/create-prompt'} className={`${path === '/create-prompt' ? 'text-white border-b border-b-[#6366F1]' : 'text-gray-400'} h-full flex justify-center items-center py-1.5 px-2  hover:text-white duration-300`}>Publish</Link>
-          <Link href={'/profile'} className={`${path === '/profile' ? 'text-white border-b border-b-[#6366F1]' : 'text-gray-400'} h-full flex justify-center items-center  py-1.5 px-2  hover:text-white duration-300`}>Account</Link>
+          <Link href={'/'} className={`${path === '/' ? 'text-white border-b border-b-[#6366F1]' : 'text-gray-400 border-none'} h-full flex justify-center items-center py-1.5 px-4 hover:text-white duration-300`}>Home</Link>
+          <Link href={'/create-prompt'} className={`${path === '/create-prompt' ? 'text-white border-b border-b-[#6366F1]' : 'text-gray-400 border-none'} h-full flex justify-center items-center py-1.5 px-4  hover:text-white duration-300`}>Publish</Link>
+          <Link href={'/profile'} className={`${path === '/profile' ? 'text-white border-b border-b-[#6366F1]' : 'text-gray-400 border-none'} h-full flex justify-center items-center  py-1.5 px-4  hover:text-white duration-300`}>Account</Link>
         </div>
 
         <div className="sm:flex  hidden">

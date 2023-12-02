@@ -8,7 +8,7 @@ const Profile = ({ name, data, handleEdit, handleDelete }) => {
       {/* <div className="text-white flex justify-center text-xl h-[20vh] py-3">{name} Profile</div> */}
 
       <div className="sm:px-0 w-full px-1">
-        {name === "My" ?<p className="flex justify-center font-bold text-white">{name} Prompts </p>:<></>}
+        {name === "My" ?<p className="flex justify-center font-bold text-3xl pb-6 text-white">{name} Prompts </p>:<></>}
         {data?.map((post) => (
           <PromptCard
             key={post._id}

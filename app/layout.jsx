@@ -58,7 +58,7 @@ const Layout = ({ children }) => {
   return (
     <html lang="en">
       <Provider>
-        <body className=" scroll-smooth">
+        <body className="no-scrollbar scroll-smooth">
           <Nav />
           <main className="flex flex-col justify-center items-center">
             <Suspense fallback="Load.....">

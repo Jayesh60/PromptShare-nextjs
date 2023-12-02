@@ -34,7 +34,7 @@ const MyProfile = () => {
   };
 
   return (
-    <div className="h-full w-full max-w-[30rem]">
+    <div className="h-full w-full py-16 max-w-[30rem]">
       {session ? (
         <>
           <title>Profile | PromptShare</title>
