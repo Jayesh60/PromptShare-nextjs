@@ -2,6 +2,7 @@ import "../styles/global.css";
 
 import Provider from "@components/Provider";
 import dynamic from "next/dynamic";
+import { Suspense } from "react";
 const Nav = dynamic(() => import("@components/Nav"));
 
 export const metadata = {
@@ -60,7 +61,9 @@ const Layout = ({ children }) => {
         <body className="bg-[#151030] scroll-smooth">
           <Nav />
           <main className="flex flex-col justify-center items-center">
+            <Suspense fallback="Load.....">
             {children}
+            </Suspense>
           </main>
         </body>
       </Provider>

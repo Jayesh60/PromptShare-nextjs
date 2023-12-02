@@ -7,7 +7,7 @@ import User from "@models/user";
 export const GET = async () =>{
     try {
         await connectToDb();
-        const prompts = await Prompt.find({}).sort([["_id", -1]]).populate('creator');
+        const prompts = await Prompt.find().sort({"_id":-1}).populate('creator');
         return new Response(JSON.stringify(prompts),{status:200});
 
     } catch (error) {

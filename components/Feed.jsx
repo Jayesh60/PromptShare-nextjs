@@ -1,17 +1,13 @@
 "use client";
 import { useSession } from "next-auth/react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import dynamic from "next/dynamic";
 const PromptCard = dynamic(() => import("./PromptCard"));
-const ProfileShortcut = dynamic(() => import("./ProfileShortcut"));
-const AddPromptShortcut = dynamic(() => import("./AddPromptShortcut"));
-
-
 
 const PromptCardList = ({ data, handleTagClick }) => {
   return (
     <div className="px-0 w-full ">
-      {data.map((post) => (
+      {data?.map((post) => (
         <PromptCard
           key={post._id}
           post={post}
@@ -62,7 +58,7 @@ const Feed = () => {
     const fetchPost = async () => {
       const response = await fetch("/api/create-prompt");
       const data = await response.json();
-      setPosts(data);
+        setPosts(data);
     };
     fetchPost();
   }, []);
@@ -70,14 +66,6 @@ const Feed = () => {
   return (
     <section className="px-4 md:px-2 py-2 bg-[#000000d3] w-full">
       <div className="sm:flex sm:flex-row flex flex-col-reverse w-full justify-center">
-        {/* {session && (
-          <>
-            <div className="sm:flex hidden w-[20%]">
-              <ProfileShortcut />
-            </div>
-          </>
-        )} */}
-
         <div className="w-full sm:w-[50%]">
           <div className="w-full flex justify-center">
             <input
@@ -88,22 +76,17 @@ const Feed = () => {
               onChange={handleSearchChange}
             />
           </div>
-          {searchText ? (
-            <PromptCardList
-              data={searchedResults}
-              handleTagClick={handleTagClick}
-            />
-          ) : (
-            <PromptCardList data={posts} handleTagClick={handleTagClick} />
-          )}
+          <Suspense fallback="loafing...">
+            {searchText ? (
+              <PromptCardList
+                data={searchedResults}
+                handleTagClick={handleTagClick}
+              />
+            ) : (
+              <PromptCardList data={posts} handleTagClick={handleTagClick} />
+            )}
+          </Suspense>
         </div>
-        {/* {session && (
-          <>
-            <div className="flex w-full sm:w-[20%] mb-3 sm:mb-0">
-              <AddPromptShortcut />
-            </div>
-          </>
-        )} */}
       </div>
     </section>
   );
