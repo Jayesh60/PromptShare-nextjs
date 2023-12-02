@@ -3,11 +3,11 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { useSession, signIn, signOut, getProviders } from "next-auth/react";
-import { useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import LoginLogo from "@public/assets/icons/login.svg";
 
 const Nav = () => {
-  const router = useRouter();
+  const path = usePathname();
   const { data: session } = useSession();
   const [toggle, setToggle] = useState(false);
   const [providers, setProviders] = useState(null);
@@ -21,51 +21,28 @@ const Nav = () => {
   }, []);
 
   return (
-    <nav className="flex md:px-14 sm:p-2 p-2 z-[100] top-0 sticky bg-[#050816]  w-full gap-1 justify-between items-center ">
-      <Link href={"/"} className="flex px-2 justify-center items-center">
-        <Image
-          src="/assets/images/main-logo-white-transparent.png"
-          height={50}
-          width={60}
-          alt="Logo"
-          className="rounded-full object-contain hidden md:flex"
-        />
-        <h1 className="text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-yellow-300 to-orange-400 text-transparent bg-clip-text sm:text-white">
+    <nav className="flex px-2 p-0 z-[100] h-[56px] top-0 sticky bg-opacity-80 border-t-zinc-700  bg-zinc-900  w-full backdrop-blur gap-1 justify-between items-center ">
+      <Link href={"/"} className="flex justify-center items-center">
+        <h1 className="text-2xl md:text-2xl font-extrabold bg-gradient-to-r from-yellow-300 to-orange-400 text-transparent bg-clip-text sm:text-white">
           PromptShare
         </h1>
       </Link>
-      <h1 className="text-center sm:flex hidden text-xl md:text-3xl font-extrabold  bg-gradient-to-r from-yellow-300 to-orange-400 text-transparent leading-none bg-clip-text ">
-        Discover and Share AI Prompt's
-      </h1>
-      
       {/* desktop */}
-      
+        <div className="sm:flex h-full hidden justify-center items-center">
+          <Link href={'/'} className={`${path === '/' ? 'text-white border-b border-b-[#6366F1]' : 'text-gray-400'} h-full flex justify-center items-center py-1.5 px-2 hover:text-white`}>Home</Link>
+          <Link href={'/create-prompt'} className={`${path === '/create-prompt' ? 'text-white border-b border-b-[#6366F1]' : 'text-gray-400'} h-full flex justify-center items-center py-1.5 px-2  hover:text-white`}>Publish</Link>
+          <Link href={'/profile'} className={`${path === '/profile' ? 'text-white border-b border-b-[#6366F1]' : 'text-gray-400'} h-full flex justify-center items-center  py-1.5 px-2  hover:text-white`}>Account</Link>
+        </div>
+
         <div className="sm:flex  hidden">
           {session?.user ? (
-            <div className="flex justify-center items-center gap-3">
-              <Link
-                href="/create-prompt"
-                className="font-bold py-1 px-3 bg-[#28244F] text-center rounded"
-              >
-                Add Prompt
-              </Link>
-              <button
-                type="button"
-                onClick={() => signOut()}
-                className="font-bold  bg-[#28244F]  rounded py-1 px-3 "
-              >
-                Sign Out
-              </button>
-              <Link href="/profile">
-                <Image
-                  src={session?.user.image}
-                  height={40}
-                  width={40}
-                  alt="profile"
-                  className="rounded-full"
-                />
-              </Link>
-            </div>
+            <button
+            type="button"
+            onClick={() => signOut()}
+            className="font-bold  bg-[#28244F]  rounded py-1 px-3 "
+          >
+            Sign Out
+          </button>
           ) : (
             <>
               {providers &&
@@ -73,10 +50,10 @@ const Nav = () => {
                   <button
                     type="button"
                     key={provider.name}
-                    onClick={() => signIn(provider.id)}
-                    className="font-bold  py-1 px-3 bg-[#28244F] text-white text-center  rounded"
+                    onClick={() => signIn(provider.id, { callbackUrl: "/" })}
+                    className="font-medium opacity-90  py-1 px-4 to-indigo-600 via-indigo-800 from-indigo-800 text-white text-center  rounded-md bg-gradient-to-t hover:brightness-110 drop-shadow-get-started"
                   >
-                    Sign In
+                    Get Started
                   </button>
                 ))}
             </>
@@ -92,7 +69,7 @@ const Nav = () => {
                 height={40}
                 width={40}
                 alt="profile"
-                className="rounded-full"
+                className="rounded-full cursor-pointer"
                 onClick={() => setToggle((prev) => !prev)}
               />
               {toggle && (
@@ -119,7 +96,7 @@ const Nav = () => {
                     }}
                     className=" font-inter  font-medium rounded-full border border-black bg-black py-1 px-5 text-white transition-all hover:bg-white hover:text-black text-center text-sm font-inter flex items-center justify-center "
                   >
-                    Sign Out
+                    Log Out
                   </button>
                 </div>
               )}
@@ -134,29 +111,12 @@ const Nav = () => {
                     onClick={() => signIn(provider.id, { callbackUrl: "/" })}
                     className=" text-white flex flex-row gap-2 items-center justify-center font-semibold p-1 sm:p-2  rounded"
                   >
-                    {/* <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="28"
-                      height="28"
-                      viewBox="0 0 32 32"
-                    >
-                      <path
-                        fill="none"
-                        d="M8.007 24.93A4.996 4.996 0 0 1 13 20h6a4.996 4.996 0 0 1 4.993 4.93a11.94 11.94 0 0 1-15.986 0ZM20.5 12.5A4.5 4.5 0 1 1 16 8a4.5 4.5 0 0 1 4.5 4.5Z"
-                      />
-                      <path
-                        fill="currentColor"
-                        d="M26.749 24.93A13.99 13.99 0 1 0 2 16a13.899 13.899 0 0 0 3.251 8.93l-.02.017c.07.084.15.156.222.239c.09.103.187.2.28.3c.28.304.568.596.87.87c.092.084.187.162.28.242c.32.276.649.538.99.782c.044.03.084.069.128.1v-.012a13.901 13.901 0 0 0 16 0v.012c.044-.031.083-.07.128-.1c.34-.245.67-.506.99-.782c.093-.08.188-.159.28-.242c.302-.275.59-.566.87-.87c.093-.1.189-.197.28-.3c.071-.083.152-.155.222-.24ZM16 8a4.5 4.5 0 1 1-4.5 4.5A4.5 4.5 0 0 1 16 8ZM8.007 24.93A4.996 4.996 0 0 1 13 20h6a4.996 4.996 0 0 1 4.993 4.93a11.94 11.94 0 0 1-15.986 0Z"
-                      />
-                    </svg> */}
-                    <Image src={LoginLogo} width={20}  height={30} alt="login"/>
-                    <p className="text-center text-sm">Sign In</p>
+                    <p className="font-medium opacity-90  py-1 px-4 to-indigo-600 via-indigo-800 from-indigo-800 text-white text-center text-sm  rounded-md bg-gradient-to-t hover:brightness-110 drop-shadow-get-started">Get Started</p>
                   </button>
                 ))}
             </>
           )}
         </div>
-      
     </nav>
   );
 };
