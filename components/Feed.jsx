@@ -3,6 +3,7 @@ import { useSession } from "next-auth/react";
 import { useState, useEffect, Suspense } from "react";
 import dynamic from "next/dynamic";
 import Link from "next/link";
+import axios from "axios";
 const PromptCard = dynamic(() => import("./PromptCard"));
 
 const PromptCardList = ({ data, handleTagClick }) => {
@@ -57,9 +58,9 @@ const Feed = () => {
 
   useEffect(() => {
     const fetchPost = async () => {
-      const response = await fetch("/api/create-prompt", { cache: 'no-store' });
-      const data = await response.json();
-      setPosts(data);
+      const response = await axios.get("/api/create-prompt");
+      // const data = await response.json();
+      setPosts(response.data);
     };
     fetchPost();
   }, []);
