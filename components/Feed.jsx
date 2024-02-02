@@ -8,7 +8,7 @@ const PromptCard = dynamic(() => import("./PromptCard"));
 
 const PromptCardList = ({ data, handleTagClick }) => {
   return (
-    <div className="px-0 w-full ">
+    <div className="px-0 w-full space-y-6 py-8 sm:columns-2 sm:gap-6 xl:columns-3">
       {data?.map((post) => (
         <PromptCard
           key={post._id}
@@ -65,9 +65,9 @@ const Feed = () => {
   }, []);
 
   return (
-    <section className="px-4 md:px-2 py-2 bg-zinc-800 w-full">
-      <div className="sm:flex sm:flex-row flex flex-col-reverse w-full justify-center">
-        <div className="w-full sm:w-[50%]">
+    <section className="px-4 md:px-16 py-2 bg-zinc-800 w-full">
+      {/* <div className="sm:flex sm:flex-row flex flex-col-reverse w-full justify-center"> */}
+        <div className="mt-16 w-full flex justify-center items-center flex-col gap-2">
           <div className="w-full flex-col py-16 gap-5 flex justify-center items-center">
             <div className="text-center justify-center w-full items-center flex flex-col gap-3">
               <Link href={'/'} className=" text-5xl font-sans font-semibold py-2">
@@ -87,7 +87,7 @@ const Feed = () => {
               />
             </div>
           </div>
-          <Suspense fallback="loafing...">
+          <Suspense fallback="loading...">
             {searchText ? (
               <PromptCardList
                 data={searchedResults}
@@ -98,7 +98,7 @@ const Feed = () => {
             )}
           </Suspense>
         </div>
-      </div>
+      {/* </div> */}
     </section>
   );
 };

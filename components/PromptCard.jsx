@@ -17,8 +17,8 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
     setTimeout(() => setCopied(""), 3000);
   };
   return (
-    <div className="md:p-0 w-full mt-2">
-      <div className="flex rounded h-full md:p-3 p-2 flex-col bg-gray-200 bg-opacity-30 backdrop-blur-sm">
+    <div className="flex-1 md:p-3 p-2 break-inside-avoid bg-gray-200 bg-opacity-30 backdrop-blur-sm rounded-lg bg-clip-padding  md:w-[360px] w-full h-fit">
+      {/* <div className="flex rounded h-fit  flex-col "> */}
         <div className="flex justify-between items-center mb-3">
           <div className="flex justify-center items-center">
             <Image
@@ -113,7 +113,7 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
           <></>
         )}
       </div>
-    </div>
+    // </div>
   );
 };
 
